@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>House Recommendation</title>
+<style>
+body {
+    background-color: #008B8B;
+}
+
+p {
+    color: #E6E6FA;
+    font-size: 120%;
+}
+
+h1 {
+    color: #E6E6FA;
+    font-size: 200%;
+}
+
+table, td {
+    border: 1px solid black;
+    border-color: #E6E6FA;
+    text-align: center;
+    color: #E6E6FA;
+}
+th {
+    border: 1px solid black;
+    border-color: #E6E6FA;
+    text-align: center;
+    color: #E6E6FA;
+}
+</style>
+</head>
+<body>
+<h1> List of Housing Recommendation </h1>
+<p> Clusters: {{ cluster | safe }}</p>
+<script>
+var body = document.getElementsByTagName("body")[0];
+var table = document.createElement("table");
+var table_body = document.createElement('tbody');
+var row = document.createElement("tr");
+var cell_id = document.createElement("th");
+var cell_price = document.createElement("th");
+var cell_size = document.createElement("th");
+var cell_number_of_bedrooms = document.createElement("th");
+var cell_number_of_bathrooms = document.createElement("th");
+var cell_district =  document.createElement("th");
+var cell_url = document.createElement("th");
+var cell_id_text = document.createTextNode("Id");
+var cell_price_text = document.createTextNode("Price");
+var cell_size_text = document.createTextNode("Size");
+var cell_number_of_bedrooms_text = document.createTextNode("Number_of_bedrooms");
+var cell_number_of_bathrooms_text = document.createTextNode("Number_of_bathrooms");
+var cell_district_text = document.createTextNode("District");
+var cell_url_text = document.createTextNode("Url");
+cell_id.appendChild(cell_id_text);
+cell_price.appendChild(cell_price_text);
+cell_size.appendChild(cell_size_text);
+cell_number_of_bedrooms.appendChild(cell_number_of_bedrooms_text);
+cell_number_of_bathrooms.appendChild(cell_number_of_bathrooms_text);
+cell_district.appendChild(cell_district_text);
+cell_url.appendChild(cell_url_text);
+row.appendChild(cell_id);
+row.appendChild(cell_price);
+row.appendChild(cell_size);
+row.appendChild(cell_number_of_bedrooms);
+row.appendChild(cell_number_of_bathrooms);
+row.appendChild(cell_district);
+row.appendChild(cell_url);
+table_body.appendChild(row);
+var ids = {{ ids|safe }};
+var prices = {{ prices|safe }};
+var sizes = {{ sizes | safe }};
+var num_bedrooms = {{ num_bedrooms|safe }};
+var num_bathrooms = {{ num_bathrooms|safe }};
+var districts = {{ districts|safe }};
+var links = {{ links|safe }};
+if (ids.length == 0) {
+    var p = document.createElement("p");
+    var p_text = document.createTextNode("Sorry. None of the house is matched.");
+    p.appendChild(p_text);
+    body.appendChild(p);
+}
+for (i = 0; i < ids.length; i++) {
+    var row = document.createElement("tr");
+    var cell_id = document.createElement("td");
+    var cell_price = document.createElement("td");
+    var cell_size = document.createElement("td");
+    var cell_number_of_bedrooms = document.createElement("td");
+    var cell_number_of_bathrooms = document.createElement("td");
+    var cell_district =  document.createElement("td");
+    var cell_url = document.createElement("td");
+    var cell_id_text = document.createTextNode(ids[i]);
+    var cell_price_text = document.createTextNode(prices[i]);
+    var cell_size_text = document.createTextNode(sizes[i]);
+    var cell_number_of_bedrooms_text = document.createTextNode(num_bedrooms[i]);
+    var cell_number_of_bathrooms_text = document.createTextNode(num_bathrooms[i]);
+    var cell_district_text = document.createTextNode(districts[i]);
+    var a = document.createElement('a');
+    var linkText = document.createTextNode(links[i]);
+    a.appendChild(linkText);
+    a.href = links[i];
+    cell_id.appendChild(cell_id_text);
+    cell_price.appendChild(cell_price_text);
+    cell_size.appendChild(cell_size_text);
+    cell_number_of_bedrooms.appendChild(cell_number_of_bedrooms_text);
+    cell_number_of_bathrooms.appendChild(cell_number_of_bathrooms_text);
+    cell_district.appendChild(cell_district_text);
+    cell_url.appendChild(a);
+    row.appendChild(cell_id);
+    row.appendChild(cell_price);
+    row.appendChild(cell_size);
+    row.appendChild(cell_number_of_bedrooms);
+    row.appendChild(cell_number_of_bathrooms);
+    row.appendChild(cell_district);
+    row.appendChild(cell_url);
+    table_body.appendChild(row);
+}
+table.appendChild(table_body);
+body.appendChild(table);
+</script>
+</body>
+</html>

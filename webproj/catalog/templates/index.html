@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Madrid House Selling Questionnaire</title>
+<!-- functions for updating slider values -->
+<script type="text/javascript">
+function updateInput1(value) {
+    document.getElementById('answer1').innerHTML = ((value - 1) / 999 * (0.02979331 - 0.0009541098) + 0.0009541098) * 1000000;
+}
+function updateInput2(value) {
+    document.getElementById('answer2').innerHTML = (value - 1) / 999 * (23.83824 - 11.18604) + 11.18604;
+}
+function updateInput3_1(value) {
+    document.getElementById('answer3_1').innerHTML = (value - 1) / 999 * (4.889048 - 1.661934) + 1.661934;
+}
+function updateInput3_2(value) {
+    document.getElementById('answer3_2').innerHTML = (value - 1) / 999 * (0.9863457 - 0.1424658) + 0.1424658;
+}
+function updateInput3_3(value) {
+    document.getElementById('answer3_3').innerHTML = (value - 1) / 999 * (2.210447 - 0.3337438) + 0.3337438;
+}
+function updateInput3_4(value) {
+    document.getElementById('answer3_4').innerHTML = (value - 1) / 999 * (15.06754 - 4.455487) + 4.455487;
+}
+function updateInput3_5(value) {
+    document.getElementById('answer3_5').innerHTML = (value - 1) / 999 * (2.367431 - 0.1316856) + 0.1316856;
+}
+function updateInput4(value) {
+    document.getElementById('answer4').innerHTML = (value - 1) / 999 * (46.03836 - 28.76687) + 28.76687;
+}
+function updateInput5(value) {
+    document.getElementById('answer5').innerHTML = (value - 1) / 999 * (46.34757 - 11.32754) + 11.32754;
+}
+function updateInput6_1(value) {
+    document.getElementById('answer6_1').innerHTML = (value - 1) / 999 * (0.005723136 - 0.00007705809) + 0.00007705809
+}
+function updateInput6_2(value) {
+    document.getElementById('answer6_2').innerHTML = (value - 1) / 999 * (0.01553212 - 0.0001755212) + 0.0001755212;
+}
+function updateInput6_3(value) {
+    document.getElementById('answer6_3').innerHTML = (value - 1) / 999 * (0.0007817686 - 0.00007722949) + 0.00007722949;
+}
+function updateInput6_4(value) {
+    document.getElementById('answer6_4').innerHTML = (value - 1) / 999 * (0.001017774 - 0.0003865426) + 0.0003865426;
+}
+function updateInput6_5(value) {
+    document.getElementById('answer6_5').innerHTML = (value - 1) / 999 * (0.0003245077 - 0.000007360789) + 0.000007360789;
+}
+function updateInput6_6(value) {
+    document.getElementById('answer6_6').innerHTML = (value - 1) / 999 * (0.0005479452 - 0.0001963865) + 0.0001963865;
+}
+function updateInput6_7(value) {
+    document.getElementById('answer6_7').innerHTML = (value - 1) / 999 * (0.003847484  - 0.00133729) + 0.00133729;
+}
+function updateInput7(value) {
+    document.getElementById('answer7').innerHTML = ((value - 1) / 999 * (0.0001644144 - 0.000001614235) + 0.000001614235) * 1000000;
+}
+</script>
+</head>
+<style>
+body {
+    background-color: #008B8B;
+}
+
+p {
+    color: #E6E6FA;
+    font-size: 120%;
+}
+
+h1 {
+    color: #E6E6FA;
+    font-size: 200%;
+}
+
+#slidecontainer {
+    width: 50%;
+}
+
+#slidecontainer2 {
+    width: 50%;
+}
+
+#slidecontainer3_1 {
+    width: 50%;
+}
+
+#slidecontainer3_2 {
+    width: 50%;
+}
+
+#slidecontainer3_3 {
+    width: 50%;
+}
+
+#slidecontainer3_4 {
+    width: 50%;
+}
+
+#slidecontainer3_5 {
+    width: 50%;
+}
+
+#slidecontainer4 {
+    width: 50%;
+}
+
+#slidecontainer5 {
+    width: 50%;
+}
+
+#slidecontainer6_1 {
+    width: 50%;
+}
+
+#slidecontainer6_2 {
+    width: 50%;
+}
+
+#slidecontainer6_3 {
+    width: 50%;
+}
+
+#slidecontainer6_4 {
+    width: 50%;
+}
+
+#slidecontainer6_5 {
+    width: 50%;
+}
+
+#slidecontainer6_6 {
+    width: 50%;
+}
+
+#slidecontainer6_7 {
+    width: 50%;
+}
+
+#slidecontainer7 {
+    width: 50%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #87CEFA;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <h1>Questionnaire of Your Prospective Living Place in Madrid</h1>
+    <!-- Q1 to Q5 -->
+    <div id="slidecontainer">
+        <p>Q1. What is your preferred population density in your prospective neighborhood?</p>
+        <input type="range" name="question1" min="1" max="1000" value="500" onchange="updateInput1(this.value);" oninput="updateInput1(this.value)" class="slider" id="question1">
+        <p><span id="answer1"></span> people / km<sup>2</sup></p>
+    </div>
+    <div id="slidecontainer2">
+        <p>Q2. What percentage of elderly people would you like to live with in your prospective neighborhood?</p>
+        <input type="range" name="question2" min="1" max="1000" value="500" onchange="updateInput2(this.value);" oninput="updateInput2(this.value)" class="slider" id="question2">
+        <p><span id="answer2"></span>%</p>
+    </div>
+    <p>Q3. What percentage of the following ethnic groups would you like to live with in your prospective neighborhood?</p>
+    <div id="slidecontainer3_1" style="margin-left: 40px">
+        <p>1) UE Countries</p>
+        <input type="range" name="question3_1" min="1" max="1000" value="500" onchange="updateInput3_1(this.value);" oninput="updateInput3_1(this.value)" class="slider" id="question3_1">
+        <p><span id="answer3_1"></span>%</p>
+    </div>
+    <div id="slidecontainer3_2" style="margin-left: 40px">
+        <p>2) Europe but not UE countries</p>
+        <input type="range" name="question3_2" min="1" max="1000" value="500" onchange="updateInput3_2(this.value);" oninput="updateInput3_2(this.value)" class="slider" id="question3_2">
+        <p><span id="answer3_2"></span>%</p>
+    </div>
+    <div id="slidecontainer3_3" style="margin-left: 40px">
+        <p>3) Africa</p>
+        <input type="range" name="question3_3" min="1" max="1000" value="500" onchange="updateInput3_3(this.value);" oninput="updateInput3_3(this.value)" class="slider" id="question3_3">
+        <p><span id="answer3_3"></span>%</p>
+    </div>
+    <div id="slidecontainer3_4" style="margin-left: 40px">
+        <p>4) Centro America south America and the Caribe</p>
+        <input type="range" name="question3_4" min="1" max="1000" value="500" onchange="updateInput3_4(this.value);" oninput="updateInput3_4(this.value)" class="slider" id="question3_4">
+        <p><span id="answer3_4"></span>%</p>
+    </div>
+    <div id="slidecontainer3_5" style="margin-left: 40px">
+        <p>5) Asia</p>
+        <input type="range" name="question3_5" min="1" max="1000" value="500" onchange="updateInput3_5(this.value);" oninput="updateInput3_5(this.value)" class="slider" id="question3_5">
+        <p><span id="answer3_5"></span>%</p>
+    </div>
+    <div id="slidecontainer4">
+        <p>Q4. What percentage of family households (i.e., married people) would you like to live with in your prospective neighborhood?</p>
+        <input type="range" name="question4" min="1" max="1000" value="500" onchange="updateInput4(this.value);" oninput="updateInput4(this.value)" class="slider" id="question4">
+        <p><span id="answer4"></span>%</p>
+    </div>
+    <div id="slidecontainer5">
+        <p>Q5. What percentage of people with university education would you like to live with in your prospective neighborhood?</p>
+        <input type="range" name="question5" min="1" max="1000" value="500" onchange="updateInput5(this.value);" oninput="updateInput5(this.value)" class="slider" id="question5">
+        <p><span id="answer5"></span>%</p>
+    </div>
+    <!-- Q6-->
+    <p>Q6. How likely would you like to have a convenient access to the following facilities?</p>
+    <div id="slidecontainer6_1" style="margin-left: 40px">
+        <p>1) Shopping (e.g., supermarkets, shopping malls, stores etc.)</p>
+        <input type="range" name="question6_1" min="1" max="1000" value="500" onchange="updateInput6_1(this.value);" oninput="updateInput6_1(this.value)" class="slider" id="question6_1">
+        <p><span id="answer6_1"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_2" style="margin-left: 40px">
+        <p>2) Catering (e.g., restaurant, café, pub, bar, food court etc.)</p>
+        <input type="range" name="question6_2" min="1" max="1000" value="500" onchange="updateInput6_2(this.value);" oninput="updateInput6_2(this.value)" class="slider" id="question6_2">
+        <p><span id="answer6_2"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_3" style="margin-left: 40px">
+        <p>3) Leisure (e.g., theaters, nightclubs, cinemas, parks etc.)</p>
+        <input type="range" name="question6_3" min="1" max="1000" value="500" onchange="updateInput6_3(this.value);" oninput="updateInput6_3(this.value)" class="slider" id="question6_3">
+        <p><span id="answer6_3"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_4" style="margin-left: 40px">
+        <p>4) Health (e.g., pharmacies, hospitals, medical practices etc.)</p>
+        <input type="range" name="question6_4" min="1" max="1000" value="500" onchange="updateInput6_4(this.value);" oninput="updateInput6_4(this.value)" class="slider" id="question6_4">
+        <p><span id="answer6_4"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_5" style="margin-left: 40px">
+        <p>5) Parking (e.g., parking sites)</p>
+        <input type="range" name="question6_5" min="1" max="1000" value="500" onchange="updateInput6_5(this.value);" oninput="updateInput6_5(this.value)" class="slider" id="question6_5">
+        <p><span id="answer6_5"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_6" style="margin-left: 40px">
+        <p>6) Education (e.g., universities, schools, colleges, kindergartens etc.)</p>
+        <input type="range" name="question6_6" min="1" max="1000" value="500" onchange="updateInput6_6(this.value);" oninput="updateInput6_6(this.value)" class="slider" id="question6_6">
+        <p><span id="answer6_6"></span> per person</p>
+    </div>
+    <div id="slidecontainer6_7" style="margin-left: 40px">
+        <p>7) Transportation (e.g., railway station, bus station, bus stop, taxi rank etc.)</p>
+        <input type="range" name="question6_7" min="1" max="1000" value="500" onchange="updateInput6_7(this.value);" oninput="updateInput6_7(this.value)" class="slider" id="question6_7">
+        <p><span id="answer6_7"></span> per person</p>
+    </div>
+    <!-- Q7 -->
+    <div id="slidecontainer7">
+        <p>Q7. How likely would you like to live in a neighborhood with green space?</p>
+        <input type="range" name="question7" min="1" max="1000" value="500" onchange="updateInput7(this.value);" oninput="updateInput7(this.value)" class="slider" id="question7">
+        <p><span id="answer7"></span> tree / km<sup>2</sup></p>
+    </div>
+    <!-- Q8 -->
+    <p>Q8. What kind of houses are you looking for?</p>
+    <div style="margin-left: 40px">
+        <p>1) Price</p>
+        <p>
+            Min:
+            <select name="price_min">
+                <option value="60000">60000</option>
+                <option value="80000">80000</option>
+                <option value="100000">100000</option>
+                <option value="120000">120000</option>
+                <option value="140000">140000</option>
+                <option value="160000">160000</option>
+            </select>
+             Max:
+            <select name="price_max">
+                <option value="60000">60000</option>
+                <option value="80000">80000</option>
+                <option value="100000">100000</option>
+                <option value="120000">120000</option>
+                <option value="140000">140000</option>
+                <option value="160000">160000</option>
+            </select>
+        </p>
+        <p>2) Size</p>
+        <p>
+            Min:
+            <select name="size_min">
+                <option value="40">40</option>
+                <option value="60">60</option>
+                <option value="80">80</option>
+                <option value="100">100</option>
+                <option value="120">120</option>
+                <option value="140">140</option>
+            </select>
+            m<sup>2</sup>     Max:
+            <select name="size_max">
+                <option value="40">40</option>
+                <option value="60">60</option>
+                <option value="80">80</option>
+                <option value="100">100</option>
+                <option value="120">120</option>
+                <option value="140">140</option>
+            </select>
+            m<sup>2</sup>
+        </p>
+        <p>3) Number of Bedrooms</p>
+        <p>
+            <select name="number_of_bedrooms">
+                <option value="0">0 (studio)</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4 or more</option>
+            </select>
+            bedrooms
+        </p>
+        <p>4) Number of Bathrooms</p>
+        <p>
+            <select name="number_of_bathrooms">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3 or more</option>
+            </select>
+            bathrooms
+        </p>
+    </div>
+
+    <!-- submit -->
+    <input type="submit" value="Submit">
+</form>
+
+<!-- set default values -->
+<script>
+document.getElementById('answer1').innerHTML = ((document.getElementById('question1').value - 1) / 999 * (0.02979331 - 0.0009541098) + 0.0009541098) * 1000000;
+document.getElementById('answer2').innerHTML = (document.getElementById('question2').value - 1) / 999 * (23.83824 - 11.18604) + 11.18604;
+document.getElementById('answer3_1').innerHTML = (document.getElementById('question3_1').value - 1) / 999 * (4.889048 - 1.661934) + 1.661934;
+document.getElementById('answer3_2').innerHTML = (document.getElementById('question3_2').value - 1) / 999 * (0.9863457 - 0.1424658) + 0.1424658;
+document.getElementById('answer3_3').innerHTML = (document.getElementById('question3_3').value - 1) / 999 * (2.210447 - 0.3337438) + 0.3337438;
+document.getElementById('answer3_4').innerHTML = (document.getElementById('question3_4').value - 1) / 999 * (15.06754 - 4.455487) + 4.455487;
+document.getElementById('answer3_5').innerHTML = (document.getElementById('question3_5').value - 1) / 999 * (2.367431 - 0.1316856) + 0.1316856;
+document.getElementById('answer4').innerHTML = (document.getElementById('question4').value - 1) / 999 * (46.03836 - 28.76687) + 28.76687;
+document.getElementById('answer5').innerHTML = (document.getElementById('question5').value - 1) / 999 * (46.34757 - 11.32754) + 11.32754;
+document.getElementById('answer6_1').innerHTML = (document.getElementById('question6_1').value - 1) / 999 * (0.005723136 - 0.00007705809) + 0.00007705809;
+document.getElementById('answer6_2').innerHTML = (document.getElementById('question6_2').value - 1) / 999 * (0.01553212 - 0.0001755212) + 0.0001755212;
+document.getElementById('answer6_3').innerHTML = (document.getElementById('question6_3').value - 1) / 999 * (0.0007817686 - 0.00007722949) + 0.00007722949;
+document.getElementById('answer6_4').innerHTML = (document.getElementById('question6_4').value - 1) / 999 * (0.001017774 - 0.0003865426) + 0.0003865426;
+document.getElementById('answer6_5').innerHTML = (document.getElementById('question6_5').value - 1) / 999 * (0.0003245077 - 0.000007360789) + 0.000007360789;
+document.getElementById('answer6_6').innerHTML = (document.getElementById('question6_6').value - 1) / 999 * (0.0005479452 - 0.0001963865) + 0.0001963865;
+document.getElementById('answer6_7').innerHTML = (document.getElementById('question6_7').value - 1) / 999 * (0.003847484 - 0.00133729) + 0.00133729;
+document.getElementById('answer7').innerHTML = ((document.getElementById('question7').value - 1) / 999 * (0.0001644144 - 0.000001614235) + 0.000001614235) * 1000000;
+</script>
+</body>
+</html>
